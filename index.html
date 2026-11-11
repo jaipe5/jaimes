@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Área del círculo</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef4ff;
+      text-align: center;
+      padding: 40px 15px;
+    }
+
+    .caja {
+      background: white;
+      max-width: 400px;
+      margin: auto;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px #0002;
+    }
+
+    input, button {
+      padding: 12px;
+      margin: 10px 0;
+      font-size: 18px;
+      border-radius: 8px;
+    }
+
+    input {
+      width: 85%;
+      border: 1px solid #aaa;
+    }
+
+    button {
+      background: #1764c0;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #resultado {
+      font-size: 22px;
+      color: #1764c0;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="caja">
+    <h1>Área del círculo</h1>
+
+    <p>Introduce el radio del círculo:</p>
+
+    <input type="number" id="radio"
+           min="0" step="any" placeholder="Ejemplo: 5">
+
+    <button onclick="calcular()">Calcular área</button>
+
+    <p>Fórmula: A = π × r²</p>
+
+    <p id="resultado"></p>
+  </div>
+
+  <script>
+    function calcular() {
+      let radio = Number(document.getElementById("radio").value);
+
+      if (radio <= 0) {
+        document.getElementById("resultado").textContent =
+          "Introduce un radio mayor que cero.";
+        return;
+      }
+
+      let area = Math.PI * radio * radio;
+
+      document.getElementById("resultado").textContent =
+        "Área = " + area.toFixed(2) + " unidades²";
+    }
+  </script>
+</body>
+</html>
